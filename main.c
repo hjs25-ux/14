@@ -3,26 +3,30 @@
 
 
 
-int main(int argc, char *argv[])
-{
-    int i=0;
-    char* pc = NULL;
-    
-    pc = (char*)malloc(100*sizeof(char));
-    if (pc == NULL)
-    {
-           printf("ERROR\n");
-           exit(1);
-    }
-              
-         
-    for (i=0;i<26;i++){
-         pc[i] = 'a'+i;
-         }     
-         pc[i] = 0;
-         printf("%s\n", pc);
-         free(pc);
-         
+struct Book{
+       int number;
+       char title[10];
+};
+
+
+  int main(int argc, char *argv[]){
+       struct Book*p;
+       
+       p= (struct Book*)malloc(2*sizeof(struct Book));
+       
+       if(p==NULL){
+          printf("Error\n");
+          return;
+          }
+
+  p->number=1;
+  strcpy(p->title, "C Programming");
+  
+  (p+1)->number = 2;
+  strcpy((p+1)->title, "Electronics");
+  
+  free(p);
+  return;
 
   
   system("PAUSE");	
