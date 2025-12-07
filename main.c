@@ -10,25 +10,21 @@ struct Book{
 
 
   int main(int argc, char *argv[]){
-       struct Book*p;
+      struct Book *p;
+      
+      p = (struct Book*)malloc(2*sizeof(struct Book));
+      
+      p->number = 1;
+      strcpy (p->title, "C Programming");
+      
+      (p+1)->number = 2;
+      strcpy((p+1)->title, "Electonics");
+      
+      free(p);
+      
+      system("PAUSE");
+      return 0;
+  
+  
+  }
        
-       p= (struct Book*)malloc(2*sizeof(struct Book));
-       
-       if(p==NULL){
-          printf("Error\n");
-          return;
-          }
-
-  p->number=1;
-  strcpy(p->title, "C Programming");
-  
-  (p+1)->number = 2;
-  strcpy((p+1)->title, "Electronics");
-  
-  free(p);
-  return;
-
-  
-  system("PAUSE");	
-  return 0;
-}
